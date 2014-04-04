@@ -9,4 +9,5 @@ Usage
 =====
 
 Grabs files from the review and opens them in a split window
-:CCollab <review #>
+
+:CCollab \<review \#\>
