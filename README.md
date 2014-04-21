@@ -11,3 +11,7 @@ Usage
 Grabs files from the review and opens them in a split window
 
 :CCollab \<review \#\>
+Opens up a zip file of files changed in the review.
+
+:CCollabDiff \<review \#\>
+Applies the diff from code collab into your current working tree. 
