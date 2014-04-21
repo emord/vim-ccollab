@@ -13,7 +13,15 @@ function! s:GetZipFromReview(review)
     :vsp /tmp/blah.zip
 endfunction
 
-command! -nargs=1 CCollab call s:GetZipFromReview(<f-args>)
+function! s:GetDiffFromReview(review)
+    :let diffFile = '/tmp/blah.diff'
+    :let baseurl = '/diff\?context\=10\&reviewid\='
+    :execute ':!ccollab admin wget ' . baseurl . a:review . ' > ' . diffFile
+    :execute ':!git apply ' . diffFile
+endfunction
+
+command! -nargs=1 CCollab     call s:GetZipFromReview(<f-args>)
+command! -nargs=1 CCollabDiff call s:GetDiffFromReview(<f-args>)
 
 " ------------------------------------------------------------------------------
 let &cpo= s:keepcpo
